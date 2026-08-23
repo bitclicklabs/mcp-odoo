@@ -141,15 +141,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh release upload "${{ github.event.release.tag_name }}" dist/*.mcpb --clobber
 
-  mcp-registry-publish:
-    needs:
-      - publish
-    if: github.event_name == 'release' && github.event.action == 'published'
-    permissions:
-      id-token: write
-      contents: read
-    uses: ./.github/workflows/mcp-registry.yml
-
   smithery-publish:
     runs-on: ubuntu-latest
     needs:
@@ -177,10 +168,6 @@ jobs:
           with open("smithery-config-schema.json", "w") as f:
               json.dump(schema, f)
           PY
-      - name: Ensure Smithery namespace
-        env:
-          SMITHERY_API_KEY: ${{ secrets.SMITHERY_API_KEY }}
-        run: npx -y @smithery/cli@latest namespace create erpipe-org
       - name: Publish to Smithery
         env:
           SMITHERY_API_KEY: ${{ secrets.SMITHERY_API_KEY }}

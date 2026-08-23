@@ -1,8 +1,5 @@
 FROM python:3.10-slim
 
-# Ownership marker for the official MCP registry (registry.modelcontextprotocol.io).
-LABEL io.modelcontextprotocol.server.name="io.github.erpipe-org/mcp-odoo"
-
 WORKDIR /app
 
 # Install system dependencies

@@ -2,8 +2,8 @@
 
 ## Fastest path: the .mcpb bundle (one-click, local)
 
-Every release ships an `odoo-mcp-<version>.mcpb` asset on the
-[GitHub releases page](https://github.com/erpipe-org/mcp-odoo/releases).
+Every release ships an `odoo-mcp-<version>.mcpb` asset on the GitHub
+releases page of this repository.
 Double-click it (or drag it into Claude Desktop → Settings → Extensions),
 fill in your Odoo URL, database, username, and API key in the dialog, and
 you're done — no JSON editing, no terminal. The bundle launches the server
@@ -113,7 +113,7 @@ docker run --rm \
   -e MCP_HTTP_HOST=0.0.0.0 \
   -e MCP_HTTP_PORT=8000 \
   -e MCP_ALLOW_REMOTE_HTTP=1 \
-  ghcr.io/erpipe-org/mcp-odoo:latest \
+  mcp/odoo:latest \
   --transport streamable-http \
   --host 0.0.0.0 \
   --port 8000 \

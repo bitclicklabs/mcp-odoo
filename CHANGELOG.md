@@ -8,8 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- PyPI project URL **Hosted (ERPipe)** now points at the product site
-  `https://erpipe.com/`. Added **Hosted MCP** `https://mcp.erpipe.com/mcp`.
+- Metadata-only release: refreshed PyPI project URLs.
   Do not retag `v1.3.1` (GitHub tag exists; PyPI never received that build).
 
 ## [1.3.1] - 2026-08-14
@@ -42,16 +41,13 @@ All notable changes to this project will be documented in this file.
 
 ## [1.2.3] - 2026-07-22
 
-Metadata-only ownership refresh after the repository transfer to `erpipe-org`.
-This republishes the package so the PyPI README carries the canonical
-`mcp-name: io.github.erpipe-org/mcp-odoo` marker used by the MCP Registry;
-runtime behavior is unchanged.
+Metadata-only ownership refresh. This republishes the package so the PyPI
+README carries the MCP Registry ownership marker; runtime behavior is unchanged.
 
 ## [1.2.2] - 2026-07-21
 
 Metadata and packaging release: publish a clearer PyPI/registry short
-description that points at the live free hosted product
-[ERPipe](https://mcp.erpipe.com/), plus typed discovery contracts that
+description, plus typed discovery contracts that
 landed on `main` after 1.2.1.
 
 ### Added
@@ -62,12 +58,11 @@ landed on `main` after 1.2.1.
 - **Typed `build_domain` success/error contracts** for agent consumers.
 
 ### Changed
-- **Package / catalog short descriptions** promote live ERPipe hosted free v1
-  (`mcp.erpipe.com`) while keeping this package the local/self-host 41-tool
-  server. README, site, MCP Desktop Extension manifest, and comparison docs
-  aligned.
-- PyPI `summary` keywords include `erpipe`, `chatgpt`, `claude`, and
-  `model-context-protocol`; project URL `Hosted (ERPipe)` added.
+- **Package / catalog short descriptions** clarified while keeping this package
+  the local/self-host 41-tool server. README, site, MCP Desktop Extension
+  manifest, and comparison docs aligned.
+- PyPI `summary` keywords include `chatgpt`, `claude`, and
+  `model-context-protocol`.
 
 ## [1.2.1] - 2026-07-14
 
@@ -354,7 +349,7 @@ open-source Odoo MCP server covered. Tool count 36 → 39; 854 tests.
 - Added `lookup_model_history` tool — resolves outdated model names against a curated rename catalog (`account.invoice` → `account.move`, `mail.channel` → `discuss.channel`, payment acquirers, analytic tags, chart templates, and more) so agents stop hallucinating pre-rename names. Static catalog shipped at `odoo_mcp/data/odoo_renames.json`; never contacts Odoo.
 - Added access-error root-cause classification — `diagnose_access` accepts an `observed_error` argument and `diagnose_odoo_call` reports `error_classification`, mapping Odoo error text to `acl`, `record_rule`, `multi_company`, `authentication`, `db_routing`, or `missing_or_filtered` with a recommended next action.
 - Added field-relevance ranking — `get_model_fields` accepts `relevance="top"` and `max_fields` to return only the most business-relevant fields (required/searchable boosted) on wide models like `res.partner`.
-- Added `server.json` and a `mcp-registry-publish` release job — the server publishes to the official MCP registry (registry.modelcontextprotocol.io) as `io.github.erpipe-org/mcp-odoo` via GitHub OIDC after each PyPI release.
+- Added a `server.json` registry manifest and a `mcp-registry-publish` release job — the server publishes to the official MCP registry (registry.modelcontextprotocol.io) via GitHub OIDC after each PyPI release.
 
 ### Changed
 - Updated the XML-RPC/JSON-RPC removal timeline to Odoo 22 (fall 2028) following Odoo's postponement from Odoo 20. `diagnose_odoo_call` with `transport="xmlrpc"` now warns (instead of blocking) for Odoo 19–21 targets and errors only for Odoo 22+; `upgrade_risk_report` marks `json2_required` from Odoo 22. The `ODOO20_RPC_REMOVAL` constant is deprecated in favor of `ODOO_RPC_REMOVAL`.
