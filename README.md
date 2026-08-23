@@ -1,7 +1,5 @@
 # Odoo MCP
 
-<!-- mcp-name: io.github.erpipe-org/mcp-odoo -->
-
 <p align="center">
   <strong>The free AI layer for Odoo — any edition, any version.</strong><br>
   Odoo's built-in AI is Enterprise-only. Odoo MCP gives Community and Enterprise 16+ the same power for $0 with the LLM you already use (Claude, GPT, Gemini, DeepSeek, Ollama).<br>
@@ -13,36 +11,7 @@
   <a href="https://pypi.org/project/odoo-mcp/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/odoo-mcp.svg"></a>
   <a href="https://pypi.org/project/odoo-mcp/"><img alt="Downloads" src="https://img.shields.io/pypi/dm/odoo-mcp.svg"></a>
   <a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-black.svg"></a>
-  <a href="https://github.com/erpipe-org/mcp-odoo/actions/workflows/publish.yml"><img alt="CI" src="https://github.com/erpipe-org/mcp-odoo/actions/workflows/publish.yml/badge.svg"></a>
-  <a href="https://github.com/erpipe-org/mcp-odoo/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/erpipe-org/mcp-odoo?style=flat"></a>
-  <a href="https://github.com/erpipe-org/mcp-odoo/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/erpipe-org/mcp-odoo?style=flat"></a>
-  <a href="https://skills.sh/erpipe-org/mcp-odoo"><img alt="Agent Skills" src="https://skills.sh/b/erpipe-org/mcp-odoo"></a>
 </p>
-
-<p align="center">
-  <a href="https://erpipe.com/"><strong>🚀 ERPipe hosted</strong> — free v1 · live at erpipe.com</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/erpipe-org/erpipe"><strong>TypeScript open core</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://erpipe-org.github.io/mcp-odoo/services.html"><strong>🔍 Fixed-price audits</strong></a>
-</p>
-
-> **Want ChatGPT / Claude on a stable remote URL without running a process?**  
-> **[ERPipe](https://erpipe.com/)** is the hosted product from the same author — free v1 public beta, live in production.  
-> Sign up → add HTTPS Odoo instance(s) → connect once to `https://mcp.erpipe.com/mcp` (workspace OAuth, multi-instance, gated writes, audit dashboard).  
-> This repo stays the **local / self-host Python server** (full 41-tool surface, stdio, Docker). TypeScript building blocks: [`erpipe`](https://github.com/erpipe-org/erpipe).
-
-| | **This repo (`odoo-mcp`)** | **[ERPipe hosted](https://erpipe.com/)** |
-|--|--|--|
-| Run where | Your laptop / Docker / CI | Cloudflare (managed) |
-| Install | `uvx odoo-mcp --setup` | Sign up at [erpipe.com](https://erpipe.com/) |
-| MCP URL | stdio or local HTTP | `https://mcp.erpipe.com/mcp` |
-| Clients | Claude Code, Cursor, local agents | **ChatGPT** (primary), Claude, Cursor, any remote MCP client |
-| Tool surface | **41 tools** + 11 prompts (full local pack) | **37 tools** + 7 prompts (workspace multi-instance + governance) |
-| Multi-instance | Config file / env on your machine | Dashboard + explicit `instance` key per tool |
-| Writes | Env gate + approval tokens (+ optional MCP elicitation) | Default OFF · HITL inbox · journal · field policy |
-| Audit | Optional JSONL file | Dashboard + D1 audit trail |
-| Cost | Free forever (MIT) | Free v1 beta (fair-use caps) |
 
 Odoo MCP turns any Odoo 16+ database into a Model Context Protocol server — using only your existing credentials. **No App Store module, no permission setup, no admin access required.** Built for local agents, IDEs, and automation tools that need real Odoo context without hand-rolled scripts or unsafe direct write access.
 
@@ -69,7 +38,7 @@ Once configured (see [Setup](#setup)), ask your agent things like:
 | Background tasks | `submit_async_task` runs long read operations (addon scans, knowledge indexing, AR/AP aging) on a bounded worker pool; poll with `get_async_task` while the agent keeps reasoning. |
 | Local-first knowledge search | `index_knowledge` + `search_knowledge` give BM25 relevance ranking over a bounded record slice — accent-insensitive, in-process, no embeddings service, no data leaving the machine. |
 | Accounting pack | `receivable_payable_aging` and `accounting_health_summary` answer the most common finance questions in one call instead of hand-built domains. |
-| Agent Skills pack | 4 business-workflow skills (data-quality gate, migration copilot, month-end close, agency fleet review) — `npx skills add erpipe-org/mcp-odoo`. Developing on Odoo with shell access? Add the 21-skill companion dev suite [odoo-ai-skills](https://github.com/tuanle96/odoo-ai-skills). See [skills/](./skills/). |
+| Agent Skills pack | 4 business-workflow skills (data-quality gate, migration copilot, month-end close, agency fleet review). Developing on Odoo with shell access? Add the 21-skill companion dev suite [odoo-ai-skills](https://github.com/tuanle96/odoo-ai-skills). See [skills/](./skills/). |
 | Tool plugins | Ship your own tools as pip packages (`odoo_mcp.tools` entry points) — opt-in via `ODOO_MCP_PLUGINS`, fail-isolated, no fork needed. Trim the surface per deployment with `ODOO_MCP_TOOLS_INCLUDE/EXCLUDE`. See [docs/plugins.md](docs/plugins.md). |
 | Rate limiting | Opt-in sliding-window budget per instance and tool (`ODOO_MCP_RATE_LIMIT_MODE=warn\|block`), surfaced in `health_check`. |
 | Multi-instance | One server, several named Odoo instances — optional `instance` parameter on every tool, `list_instances` discovery, instance-bound approval tokens, per-instance schema caches. |
@@ -155,10 +124,9 @@ pip install odoo-mcp
 # or: pipx install odoo-mcp
 ```
 
-Prefer a container? See [Docker](#docker). For local development:
+Prefer a container? See [Docker](#docker). For local development, clone this repository and run:
 
 ```bash
-git clone https://github.com/erpipe-org/mcp-odoo.git
 cd mcp-odoo
 uv sync --extra dev
 ```
@@ -168,7 +136,7 @@ uv sync --extra dev
 Paste this into Claude Code, Cursor, Codex, or any coding agent and it will install the server for you:
 
 ```text
-Install the odoo-mcp MCP server (https://github.com/erpipe-org/mcp-odoo) in this environment:
+Install the odoo-mcp MCP server in this environment:
 
 1. Ask me for my Odoo URL, database name, username, and password or API key.
    Treat them as secrets: never echo, print, or log these values.
@@ -182,7 +150,7 @@ Install the odoo-mcp MCP server (https://github.com/erpipe-org/mcp-odoo) in this
 4. Leave writes disabled (do not set ODOO_MCP_ENABLE_WRITES) unless I
    explicitly ask you to enable them.
 
-Full machine-readable instructions: https://github.com/erpipe-org/mcp-odoo/blob/main/llms-install.md
+Full machine-readable instructions: [llms-install.md](./llms-install.md)
 ```
 
 Already know your client? One-liners and config snippets:
@@ -521,19 +489,13 @@ you only need a small number of reviewed methods.
 
 ## Docker
 
-Use the prebuilt GHCR image:
-
-```bash
-docker pull ghcr.io/erpipe-org/mcp-odoo:latest
-```
-
-Or build it locally:
+Build the image locally:
 
 ```bash
 docker build -t mcp/odoo:latest -f Dockerfile .
 ```
 
-Run over stdio from an MCP client (replace `mcp/odoo:latest` with `ghcr.io/erpipe-org/mcp-odoo:latest` to use the prebuilt image):
+Run over stdio from an MCP client:
 
 ```json
 {

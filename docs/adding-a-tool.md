@@ -83,6 +83,6 @@ module, add it to the matching contract in `.importlinter`.
 
 ## Good first contributions
 
-Check the [good first issue label](https://github.com/erpipe-org/mcp-odoo/labels/good%20first%20issue)
+Check the good first issue label in the issue tracker
 — typed output schemas, rename-catalog entries, and client examples are all
 self-contained. Questions → GitHub Discussions.

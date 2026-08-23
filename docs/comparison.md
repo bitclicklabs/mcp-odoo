@@ -6,19 +6,11 @@ This page compares the main options honestly so you can pick the right one —
 including when that is not this project. Last reviewed: July 2026; check each
 project's repository for current details.
 
-> **Hosted product from the same author:** [ERPipe](https://mcp.erpipe.com/) is
-> live free v1 (`https://mcp.erpipe.com/mcp`) — workspace OAuth, multi-instance
-> routing, HITL write approvals, audit dashboard. Use it when you want ChatGPT /
-> Claude on a remote URL without operating a process. This comparison focuses on
-> **self-host / open-source** bridges; ERPipe's TypeScript open core is
-> [erpipe](https://github.com/erpipe-org/erpipe).
-
 ## The options
 
 | Project | Install | Odoo-side setup | License |
 | --- | --- | --- | --- |
-| [odoo-mcp](https://github.com/erpipe-org/mcp-odoo) (this project) | `uvx odoo-mcp --setup` | **None** — existing credentials only | MIT |
-| [ERPipe hosted](https://mcp.erpipe.com/) | Sign up (free v1) | **None** — HTTPS Odoo credentials in dashboard | Hosted product · TS core MIT |
+| odoo-mcp (this project) | `uvx odoo-mcp --setup` | **None** — existing credentials only | MIT |
 | [mcp-server-odoo](https://github.com/ivnvxd/mcp-server-odoo) (ivnvxd) | `uvx mcp-server-odoo` | None in YOLO mode; optional Odoo module for permission tiers | MPL-2.0 |
 | [MuK MCP Server](https://apps.odoo.com) (MuK IT) | Odoo App Store module | Install module + configure (admin access required) | Proprietary |
 | [odoo-claude-mcp](https://github.com/rosenvladimirov/odoo-claude-mcp) | Self-hosted | Module + infrastructure | AGPL-3.0 |
@@ -51,13 +43,9 @@ June 2026 — verify against the linked repositories before deciding.
 
 ## Which one should you pick?
 
-- **You want ChatGPT/Claude on a stable remote URL with a dashboard** — use
-  **[ERPipe hosted](https://mcp.erpipe.com/)** (free v1, live). Same product
-  family as this repo; no local process. Multi-instance workspace MCP at
-  `https://mcp.erpipe.com/mcp`.
 - **You want safe writes in production** — agents that can create invoices or
   update records with an approval gate, an audit trail, and a human confirm
-  step: use **odoo-mcp** locally, or **ERPipe** for hosted HITL. No other
+  step: use **odoo-mcp** locally. No other
   open-source bridge ships the full preview → validate → approve → execute chain.
 - **You manage several Odoo databases** (agency, multi-company, staging +
   production): use **odoo-mcp** — instances are isolated down to approval
@@ -107,5 +95,4 @@ June 2026 — verify against the linked repositories before deciding.
    automatically, every human checkpoint is named, and the required modules are
    verified before any action runs.
 
-Questions or corrections to this comparison are welcome —
-[open an issue](https://github.com/erpipe-org/mcp-odoo/issues).
+Questions or corrections to this comparison are welcome — open an issue.
