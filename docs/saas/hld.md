@@ -134,6 +134,8 @@ Worked example per complex query (~12 tool round-trips, ~120K cumulative input t
 
 Cache *writes* are paid once per cache miss (5m: $1.375/M, 1h: $2.20/M) — default to the **1h TTL** so warm conversations keep reusing the cached system prompt + tool schemas; simple queries land well below $0.03. Scheduled fleet reports route through the batch API at half price.
 
+**Spike telemetry (2026-09-01, G0a run — 30-question golden set, Odoo 19, 12-tool preset):** avg **$0.023/query fully uncached** (range $0.008–$0.090), latency p50 5.9 s / p95 37.4 s (p95 dominated by multi-step schema exploration, 9–12 tool rounds). Caching did not engage because Haiku 4.5 requires **≥4,096 tokens per cache checkpoint** and the trimmed spike prefix is ~3.1K tokens; a separate probe over the threshold confirmed caching works on the EU profile (write 16,802 → read 16,802, 1h TTL). Production presets (~18–20 tools + full system prompt) clear the minimum, so the worked example above stands — with the caveat that the **cache is per-region** and the EU cross-region profile balances across 6 regions: re-measure the effective cache-read share (assumed 80%) with production prompts in Phase 1 before locking prices. Bedrock on-demand quota in `eu-north-1` throttles bursts (429): request a service-quota raise before multi-user phases.
+
 Planned tiers (draft): Free trial (50 queries) · Pro $49/mo (500 queries + 25 approved writes) · Team $149/mo (2,000 + playbooks + 3 connections) · Business $499/mo (10,000 + fleet console + SLA). Credits for overage. Gross-margin target >70%.
 
 ## 7. Non-functional targets

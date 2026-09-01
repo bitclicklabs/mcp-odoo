@@ -100,5 +100,6 @@ Backlog in priority order:
 ## Immediate next actions (this week)
 
 1. ~~Review/approve this doc set~~ — ✅ **Approved 2026-08-23**; name approved: **odooPilot**.
-2. Tech spike (Stage A, 0.1) — **scaffolded 2026-08-23**: `odoo-copilot-saas` @ `spike/haiku-loop`; harness (Bedrock EU + odoo-mcp stdio), golden-set v0 (30 q), runner with G0a scoring; ruff/mypy/pytest green. Remaining: boot `compose-odoo-demo.yaml`, configure AWS creds for eu-north-1, then run `check_bedrock` → `run_spike`.
-3. After G0a passes: kick off interviews + landing page (Stage B).
+2. ~~Tech spike (Stage A, 0.1)~~ — ✅ **G0a PASS 2026-09-01**: accuracy 100% (30/30), $0.023/query uncached, EU-only verified, against **Odoo 19** (JSON-2 + API key, `--with-demo`). Committed on `spike/haiku-loop` @ `odoo-copilot-saas`.
+3. ~~Pricing sanity (0.2)~~ — ✅ telemetry folded into HLD §6 (2026-09-01); caching re-measure + Bedrock quota raise tracked for Phase 1.
+4. **Now: Stage B** — interviews (0.3) + odooPilot landing page & waitlist (0.4).
