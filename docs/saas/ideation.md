@@ -18,6 +18,7 @@ A hosted, multi-tenant B2B SaaS — **"chat with your Odoo"** — where customer
 | [hld.md](./hld.md) | Product definition, system context diagram, components, key flows (read/write/onboarding/fleet), tenancy & security posture, cost model, assumptions | DRAFT v0.3 |
 | [lld.md](./lld.md) | Repo layout, service decomposition, DB schema, API surface, MCP session manager design, agent turn-loop state machine, testing strategy, deployment | DRAFT v0.3 |
 | [roadmap.md](./roadmap.md) | Phase 0–4 step-by-step execution with gates G0–G3, team/budget, risks, immediate next actions | DRAFT v0.2 |
+| [interviews.md](./interviews.md) | Stage B interview script: hypotheses H1–H5 (incl. MCP-only D11), screener, 30-min guide, synthesis template | v1 2026-09-01 |
 
 Related upstream docs (this repo): [docs/architecture.md](../architecture.md) · [docs/field-acl.md](../field-acl.md) · [docs/partner-playbook.md](../partner-playbook.md).
 
