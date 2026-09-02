@@ -78,6 +78,8 @@ Backlog in priority order:
 4. Public API + webhooks (agent-as-API), n8n/Zapier connectors.
 5. Conversation memory + embeddings layer beyond BM25 knowledge search.
 6. Self-hosted enterprise option (leverage MIT odoo-mcp + Helm chart).
+7. **AI document intake** (Holded-style, [competitive.md](./competitive.md) §2): per-org invoice inbox → LLM extraction + supplier matching → gated-write approval card → posted `account.move`. Pull forward to Phase 2/3 as a playbook if interview signal H6 is strong.
+8. **Semantic layer per org** (glossary / reviewed metrics / model hints, inspired by mn_mcp_server): raises answer accuracy on messy schemas; agency-configurable per client. Candidate for Phase 2.
 
 ---
 

@@ -13,6 +13,7 @@
 | H3 | Hay disposición a pagar en el rango Pro/Team ($49–149/mes) | ≥3 dan señal de pricing sin rechazo frontal y ≥3 se comprometen a piloto |
 | H4 | (D11) Hay demanda de MCP-only: conectar su propio cliente IA a Odoo sin nuestro chat | Algún entrevistado ya usa Claude/ChatGPT/Cursor y quiere conectarlo a Odoo directamente |
 | H5 | (Agencias) La consola multi-cliente es diferencial | Agencias describen trabajo manual recurrente cruzando datos de varios clientes |
+| H6 | (Holded-style) Hay demanda de un buzón de facturas con IA: reenvías el PDF y el asiento aparece en Odoo pendiente de aprobar | El entrevistado describe entrada manual de facturas de compra como dolor recurrente, o menciona Holded/OCR espontáneamente |
 
 ## Screener (filtrar antes de agendar)
 
@@ -45,6 +46,7 @@ Presentar en una frase: *"Chat con tu Odoo: conectas tu instancia en minutos con
 - Probar H2: ¿dejarías que escribiera en tu Odoo con ese flujo de aprobación? ¿Qué te frena?
 - Probar H4: ¿usáis ya Claude/ChatGPT/Cursor? ¿Preferirías conectar **tu** asistente a Odoo (sin nuestro chat) pagando solo la conexión? *(línea MCP-only, D11)*
 - Agencias: reacción a "un panel que consulta las BBDD de todos tus clientes a la vez".
+- Probar H6: ¿cómo entran hoy las facturas de compra en vuestro Odoo? ¿Quién las teclea? Reacción a: *"un correo al que reenvías la factura y aparece el asiento en Odoo, pendiente de tu aprobación"*. ¿Conocéis/usáis Holded u OCR?
 - ¿Dónde NO usarías esto nunca? (límites de confianza, datos sensibles, RGPD/residencia EU)
 
 ### Bloque 4 — Señal de pricing y cierre (5 min)
@@ -63,6 +65,7 @@ H2 writes:       [reacción al gate de aprobación]        señal: fuerte|media|
 H3 pricing:      [ancla de coste actual + rango aceptado] señal: fuerte|media|nula
 H4 mcp-only:     [cliente IA propio sí/no + interés]     señal: fuerte|media|nula
 H5 fleet (agencias): [tarea cross-cliente + horas/mes]   señal: fuerte|media|nula
+H6 intake facturas: [cómo entran hoy + reacción al buzón] señal: fuerte|media|nula
 Compromiso:      waitlist | piloto | piloto pagado | nada
 Cita literal más valiosa: "..."
 Riesgo/objeción nueva: ...
