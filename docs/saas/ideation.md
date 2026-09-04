@@ -67,6 +67,7 @@ Related upstream docs (this repo): [docs/architecture.md](../architecture.md) ·
 | 2026-08-23 | **Doc set approved** (G0 entry) · name locked: odooPilot · Phase 0 reordered (spike first, D10) | ✅ done |
 | 2026-09-01 | D11 recorded: MCP-only subscription tier (BYO MCP client, basic metrics); HLD/LLD ripple pending | ✅ done |
 | 2026-09-01 | Phase 0 Stage A: Haiku×MCP spike + golden set (G0a gate) | ✅ **G0a PASS** — accuracy 100% (30/30), $0.023/query, EU-only verified, Odoo **19** demo (JSON-2 + API key), latency p50 5.9s / p95 37.4s. Report: `odoo-copilot-saas/reports/spike_20260901_152352.*` |
-| 2026-09-01 | Phase 0 Stage B assets: interview script ([interviews.md](./interviews.md), H1–H5 incl. MCP-only) + landing draft ES/EN (`odoo-copilot-saas/landing/`) | 🔶 in progress — pending: conduct interviews, wire waitlist backend + domain/hosting, publish |
+| 2026-09-01 | Phase 0 Stage B assets: interview script ([interviews.md](./interviews.md), H1–H6) + landing ES/EN with demo tabs (`odoo-copilot-saas/landing/`) | 🔶 in progress — interviews under way (owner) |
+| 2026-09-04 | Waitlist backend live: n8n workflow "odooPilot - Waitlist to CRM" (`b1nEBvXwmKXMSsLx` @ agentic.bitclick.solutions) → dedupe + `crm.lead` in BitClick Odoo; landing form wired and E2E-tested (test leads #71/#72, deletable) | ✅ done — pending: domain/hosting for the landing, trademark search |
 
 **Next session should start at:** Phase 0 Stage B (interviews + landing page + waitlist, roadmap 0.3/0.4) · in parallel: resolve the prompt-caching-on-Bedrock caveat and refresh HLD §6 cost model with real spike telemetry ($0.023/query uncached).
