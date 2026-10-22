@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.4.0] - 2026-10-13
+## [1.4.0] - 2026-10-22
 
 ### Security
 
@@ -24,6 +24,17 @@ All notable changes to this project will be documented in this file.
 - `ODOO_MCP_AUDIT_LOG` entries include a `principal` object (`client_id`,
   `issuer`, `subject`, `session_sha256`) on authenticated transports, and
   `null` otherwise.
+
+### Fixed
+
+- `chatter_post` keeps the line breaks of a plain-text `body`. Odoo 17+
+  escapes a plain string sent over RPC and puts it in a single paragraph, so
+  every line break was lost, and `<br>` showed up as literal text. The server now
+  escapes the caller's text, turns line breaks into `<br/>`, and posts it with
+  `body_is_html=True` (Odoo 17+; Odoo 16 stores the string as HTML). HTML,
+  links, and scripts in the text are still escaped. The approval token and
+  preview keep the original text. On Odoo 17+, `body_is_html` applies only to
+  internal users; a portal API user's post shows the escaped text.
 
 ## [1.3.2] - 2026-08-19
 
