@@ -1157,6 +1157,7 @@ async def mcp_stdio_smoke(
             chatter_body = (
                 f"{chatter_marker}\nsecond line <script>alert(1)</script>"
             )
+            chatter_subject = f"Smoke subject {transport} A & <b>B</b>"
             chatter_preview = decode_tool_json(
                 await session.call_tool(
                     "chatter_post",
@@ -1164,6 +1165,7 @@ async def mcp_stdio_smoke(
                         "model": "res.partner",
                         "record_id": 1,
                         "body": chatter_body,
+                        "subject": chatter_subject,
                     },
                 ),
                 "chatter_post",
@@ -1186,6 +1188,7 @@ async def mcp_stdio_smoke(
                         "model": "res.partner",
                         "record_id": 1,
                         "body": chatter_body,
+                        "subject": chatter_subject,
                         "approval": chatter_preview["approval"],
                         "confirm": True,
                     },
@@ -1209,8 +1212,9 @@ async def mcp_stdio_smoke(
                             ["model", "=", "res.partner"],
                             ["res_id", "=", 1],
                             ["body", "ilike", chatter_marker],
+                            ["subject", "=", chatter_subject],
                         ],
-                        "fields": ["id", "body"],
+                        "fields": ["id", "body", "subject"],
                         "limit": 5,
                     },
                 ),
@@ -1231,6 +1235,12 @@ async def mcp_stdio_smoke(
             if "<script" in stored_body or "&lt;script&gt;" not in stored_body:
                 raise AssertionError(
                     f"chatter_post did not escape caller HTML: {stored_body!r}"
+                )
+            stored_subject = (chatter_persisted.get("result") or [{}])[0].get("subject")
+            # Plain-text Char: stored verbatim, not HTML-escaped.
+            if stored_subject != chatter_subject:
+                raise AssertionError(
+                    f"chatter_post subject not stored verbatim: {stored_subject!r}"
                 )
 
             return {
