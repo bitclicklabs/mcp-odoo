@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-10-22
+
 ### Fixed
 
 - On Odoo 19, `aggregate_records` with an `order` on a summed field (for
