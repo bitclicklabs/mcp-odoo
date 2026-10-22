@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "odoo-mcp"
-version = "1.4.1"
+version = "1.4.2"
 description = "Odoo MCP for AI agents — 41 tools, gated writes, multi-instance"
 readme = "README.md"
 requires-python = ">=3.10"

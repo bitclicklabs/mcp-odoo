@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-10-22
+
 ### Added
 
 - `chatter_post` accepts an optional `subject`. Without one, Odoo titles the
